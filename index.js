@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const { Pool } = require('pg');
 const hbs = require('hbs');
 const app = express();
@@ -8,11 +9,12 @@ app.set("hbs" , hbs.engine)
 app.set("views", "views");
 app.use("/static", express.static("public"));
 
+const password = process.env.PASSWORD_POSTGRES;
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'postgres',
-    password: 'Sujal@123',
+    password: password,
     port: 5432,
 });
 
@@ -72,7 +74,7 @@ app.get('/urlfetch', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    pool.query('SELECT * FROM stocks order by id  LIMIT 50', (error, result) => {
+    pool.query('SELECT * FROM stocks order by id  LIMIT 10', (error, result) => {
         if (error) {
             console.error('Error executing query', error);
             res.status(500).send('Error fetching data from PostgreSQL');
