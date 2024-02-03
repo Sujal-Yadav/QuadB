@@ -9,6 +9,8 @@ app.set('view engine', 'hbs');
 app.set("hbs" , hbs.engine)
 app.set('views', path.join(__dirname, 'views'))
 app.use("/static", express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 const pool = new Pool({
     connectionString: process.env.POSTGRES_URL + "?sslmode=require",
