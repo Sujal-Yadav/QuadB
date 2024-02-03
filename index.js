@@ -47,7 +47,7 @@ app.get('/urlfetch', (req, res) => {
     
             const query = {
                 text: `
-                    INSERT INTO stocks (key_column, base_unit, quote_unit, low, high, last, type, open, volume, sell, buy, at, name)
+                    INSERT INTO stocks (id, key_column, base_unit, quote_unit, low, high, last, type, open, volume, sell, buy, at, name)
                     VALUES ${placeholders}
                 `,
                 values: values.flat(),
