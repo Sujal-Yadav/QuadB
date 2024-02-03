@@ -179,16 +179,16 @@
 
   {{!-- SECTION-4 --}}
   <div class="mx-8 pt-6">
-    <div class="pt-10 px-4 mx-4 grid grid-cols-6 sm:grid">
-      <div class="col-span-1 w-10">
+    <div class="pt-10 px-4 mx-4 grid grid-cols-6 md:grid grid-cols-3">
+      <div class="col-span-1 w-10 sm:col-span-1">
         <div class="text-center text-2xl ml-10 flex justify-start font-bold text-gray-400">#</div>
       </div>
-      <div class="col-span-1 w-20">
+      <div class="col-span-1 w-20 md:col-span-1">
         <div class="text-center text-2xl font-extrabold	 text-gray-400">Platform</div>
 
       </div>
-      <div class="col-span-1 w-44">
-        <div class="text-center text-2xl font-extrabold	 text-gray-400">Last Traded Price</div>
+      <div class="col-span-1 md:col-span-1">
+        <span class="text-center text-2xl w-60 font-extrabold	 text-gray-400">Last Traded Price</span>
 
       </div>
       <div class="col-span-1 w-48">
@@ -223,7 +223,7 @@
       </div>
 
       {{!-- LAST --}}
-      <div class="col-span-1 w-44">
+      <div class="pr-16 col-span-1 w-44">
         &#8377; {{this.last}}
       </div>
 
