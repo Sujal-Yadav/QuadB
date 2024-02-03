@@ -73,19 +73,31 @@ app.get('/urlfetch', (req, res) => {
 
 })
 
+// app.get('/', async (req, res) => {
+//     await pool.query('SELECT * FROM stocks order by id  LIMIT 6', (error, result) => {
+//         if (error) {
+//             console.error('Error executing query', error);
+//             res.status(500).send('Error fetching data from PostgreSQL', error);
+//             return;
+//         }
+
+//         const first10Entries = result.rows;
+
+//         res.render('page', { first10Entries });
+//     });
+// });
+
 app.get('/', async (req, res) => {
-    await pool.query('SELECT * FROM stocks order by id  LIMIT 6', (error, result) => {
-        if (error) {
-            console.error('Error executing query', error);
-            res.status(500).send('Error fetching data from PostgreSQL', error);
-            return;
-        }
-
+    try {
+        const result = await pool.query('SELECT * FROM stocks ORDER BY id LIMIT 10');
         const first10Entries = result.rows;
-
         res.render('page', { first10Entries });
-    });
+    } catch (error) {
+        console.error('Error executing query:', error.message, error.stack);
+        res.status(500).send('Error fetching data from PostgreSQL: ' + error.message);
+    }
 });
+
 
 app.listen(3000, () => {
     console.log(`Server is running at http://localhost:3000`);
