@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 require('dotenv').config();
 const { Pool } = require('pg');
 const hbs = require('hbs');
@@ -6,7 +7,7 @@ const app = express();
 
 app.set('view engine', 'hbs');
 app.set("hbs" , hbs.engine)
-app.set("views", "views");
+app.set('views', path.join(__dirname, 'views'))
 app.use("/static", express.static("public"));
 
 const pool = new Pool({
