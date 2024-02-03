@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{!--
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" /> --}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+
+  <title>Hodlinfo</title>
+</head>
+
+<body style="background-color: #191d28; font-family: oswald">
+  {{!-- SECTION 1 --}}
+  <div class="mx-auto pt-4 pl-14 flex justify-between grid grid-cols-3">
+    {{!-- Image --}}
+    <div class="col-span-1">
+      <div class="">
+        <img src="/static/images/hodlinfo.jpg" class="w-30 h-15">
+      </div>
+
+    </div>
+
+    <div class="col-span-1 flex justify-center items-center">
+      <div class=" grid grid-cols-3 gap-4 pl-6">
+
+        {{!-- INR --}}
+        <div class="col-end-1">
+          <select id="countries" class="bg-gray-700 font-bold text-white text-sm rounded-xl w-auto p-2 border-0">
+            <option selected>INR</option>
+            <option value="US">USD</option>
+            <option value="CA">EUR</option>
+            <option value="FR">CAD</option>
+            <option value="DE">JPY</option>
+          </select>
+        </div>
+
+        {{!-- INR, BTC, BUY BTC --}}
+        <div class="col-span-1 ">
+          <select id="countries" class="bg-gray-700 text-white font-bold text-sm rounded-xl w-auto p-2 border-0">
+            <option selected>BTC</option>
+            <option value="US">ETH</option>
+            <option value="CA">FIL</option>
+            <option value="FR">IOTX</option>
+            <option value="DE">LINK</option>
+          </select>
+        </div>
+
+        {{!-- BUY BTC --}}
+        <div class="col-span-1">
+          <a><button type="button" class="bg-gray-700 text-white text-sm rounded-xl font-bold block w-16 p-2.5">BUY
+              BTC</button></a>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="col-span-1 flex justify-center items-center">
+      <div class="">
+        <div class="grid grid-cols-3 w-auto gap-2">
+
+          {{!-- PERCENTAGE --}}
+          <div class="col-span-1 ">
+
+            <div class="flex items-center justify-center pl-20 overflow-hidden bg-[#191d28] rounded-full">
+              <svg class="w-12 h-12 transform translate-x-1 translate-y-1" aria-hidden="true">
+                <circle class="text-[#3dc6c1]" stroke-width="3" :stroke-dasharray="circumference"
+                  :stroke-dashoffset="circumference - percent / 100 * circumference" stroke-linecap="round"
+                  stroke="currentColor" fill="transparent" r="18" cx="20" cy="20" />
+              </svg>
+              <span class="absolute text-lg text-[#3dc6c1] text-center">57</span>
+
+            </div>
+
+
+          </div>
+
+          {{!-- CONNECT TELEGRAM --}}
+          <div class="col-span-1">
+            <a type="button"
+              class="flex items-center h-12 justify-center text-white text-center bg-[#3dc6c1] w-auto font-bold rounded-xl text-md px-2 me-2 focus:outline-none">
+              <svg class="inline-block h-4 w-4 pb-1" fill="currentColor" viewbox="0 0 24 24" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                xmlns:serif="http://www.serif.com/"
+                style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+                <path id="telegram-1"
+                  d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z" />
+              </svg> Connect Telegram</a>
+          </div>
+
+          {{!-- TOGGLE BUTTON --}}
+          <div class="col-span-1 py-1.5 pl-2 pt-2.5">
+            <label class="relative inline-flex items-center me-5 cursor-pointer">
+              <input type="checkbox" value="" class="sr-only peer">
+              <div
+                class="w-14 h-7 bg-white rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full  after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-[#3dc6c1] after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-gray-700">
+              </div>
+            </label>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- SECTION 2 --}}
+
+  <div>
+    <div class="items-center justify-center flex pt-4">
+      <span class="text-4xl font-bold text-gray-400">Best Price to Trade</span>
+    </div>
+  </div>
+
+  {{!-- SECTION 3 --}}
+  <div class="grid grid-cols-6 text-center pt-16 mx-auto flex justify-center items-center">
+
+    <div class="col-span-1">
+      <div class="">
+        <span class="text-4xl font-bold text-[#3dc6c1]">0.1%</span>
+      </div>
+      <div class="row-span-1  pt-4">
+        <span class=" text-xl font-bold text-gray-400 ">5 Mins</span>
+      </div>
+    </div>
+
+
+
+    <div class="col-span-1">
+      <div class="">
+        <span class="text-4xl font-bold text-[#3dc6c1]">0.96%</span>
+      </div>
+      <div class="row-span-1  pt-4">
+        <span class=" text-xl font-bold text-gray-400 ">1 Hour</span>
+      </div>
+    </div>
+
+
+    <div class="col-span-2">
+      <div class="">
+        <span class="text-7xl font-bold text-white">&#8377; 26,56,110</span>
+      </div>
+      <div class="row-span-1 pt-4">
+        <span class="text-xl font-bold text-gray-400 ">Average BTC/INR net price including commission</span>
+      </div>
+
+    </div>
+
+
+    <div class="col-span-1">
+      <div class="">
+        <span class="text-4xl font-bold text-[#3dc6c1]">2.73%</span>
+      </div>
+      <div class="row-span-1 pt-4">
+        <span class=" text-xl font-bold text-gray-400 ">1 Day</span>
+      </div>
+    </div>
+
+
+
+    <div class="col-span-1">
+      <div class="">
+        <span class="text-4xl font-bold text-[#3dc6c1]">5.71%</span>
+      </div>
+      <div class="row-span-1  pt-4">
+        <span class=" text-xl font-bold text-gray-400 ">7 Day</span>
+      </div>
+    </div>
+
+  </div>
+
+  {{!-- SECTION-4 --}}
+  <div class="mx-8 pt-6">
+    <div class="pt-10 px-4 mx-4 grid grid-cols-6 ">
+      <div class="col-span-1 w-10">
+        <div class="text-center text-2xl ml-10 flex justify-start font-bold text-gray-400">#</div>
+      </div>
+      <div class="col-span-1 w-20">
+        <div class="text-center text-2xl font-extrabold	 text-gray-400">Platform</div>
+
+      </div>
+      <div class="col-span-1 w-44">
+        <div class="text-center text-2xl font-extrabold	 text-gray-400">Last Traded Price</div>
+
+      </div>
+      <div class="col-span-1 w-48">
+        <div class="text-center text-3xl font-extrabold	 text-gray-400">Buy / Sell Price</div>
+
+      </div>
+      <div class="pl-10 col-span-1 w-40">
+        <div class="text-center text-3xl font-extrabold	 text-gray-400">Difference</div>
+
+      </div>
+      <div class="pl-14 col-span-1 w-40">
+        <div class="text-center text-3xl font-extrabold	 text-gray-400">Savings</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mx-8">
+    {{#each first10Entries}}
+    <div class="grid grid-cols-6  text-center p-4 m-4 rounded-lg text-white text-xl font-bold"
+      style="background-color: #2e3241;">
+
+      {{!-- ID --}}
+
+      <div class="col-span-1 w-10 ml-10 flex justify-start">
+        {{this.id}}
+      </div>
+      
+      {{!-- NAME --}}
+      <div class="col-span-1 w-20">
+        {{this.name}}
+      </div>
+
+      {{!-- LAST --}}
+      <div class="col-span-1 w-44">
+        &#8377; {{this.last}}
+      </div>
+
+      {{!-- BUY / SELL --}}
+      <div class="col-span-1 w-48">
+        &#8377; {{this.buy}}/{{this.sell}}
+      </div>
+
+      {{!-- DIFFERENCE --}}
+      <div class="pl-10 col-span-1 w-40">
+        {{this.volume}}
+      </div>
+
+      {{!-- SAVINGS --}}
+      <div class="pl-14 col-span-1 w-40">
+        &#8377; {{low}}
+      </div>
+
+
+
+    </div>
+    {{/each}}
+  </div>
+
+
+</body>
+
+</html>
