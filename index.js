@@ -9,14 +9,9 @@ app.set("hbs" , hbs.engine)
 app.set("views", "views");
 app.use("/static", express.static("public"));
 
-const password = process.env.PASSWORD_POSTGRES;
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'postgres',
-    password: password,
-    port: 5432,
-});
+    connectionString: process.env.POSTGRES_URL + "?sslmode=require",
+  }) 
 
 app.get('/urlfetch', (req, res) => {
     fetch('https://api.wazirx.com/api/v2/tickers')
@@ -99,6 +94,6 @@ app.get('/', async (req, res) => {
 });
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server is running at http://localhost:3000`);
 });
