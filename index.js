@@ -77,7 +77,7 @@ app.get('/', (req, res) => {
     pool.query('SELECT * FROM stocks order by id  LIMIT 10', (error, result) => {
         if (error) {
             console.error('Error executing query', error);
-            res.status(500).send('Error fetching data from PostgreSQL');
+            res.status(500).send('Error fetching data from PostgreSQL', error);
             return;
         }
 
