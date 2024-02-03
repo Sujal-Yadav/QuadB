@@ -60,10 +60,6 @@ app.get('/urlfetch', (req, res) => {
                 .catch(error => {
                     console.error('Error inserting data into PostgreSQL', error);
                 })
-                .finally(() => {
-                    // Close the PostgreSQL pool
-                    pool.end();
-                });
         })
 
 })
